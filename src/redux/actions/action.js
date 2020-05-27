@@ -34,6 +34,8 @@ export const fetchDataFromAPI = () => {
 					.catch((error) => ({error, type:'error'}))
 			)
 		).then((data) => {
+            // here the last api call will fail because there is an error there.
+            // To handle the same I have dispatched the fetchDataFailure with the error object
             data.forEach(element => {
                 element.type === 'error' ? dispatch(fetchDataFailure({ error: "An error occured while loading data"}))
                 : dispatch(fetchDataSuccess(element))

@@ -27,7 +27,6 @@ export function fetchDataFailure(error) {
 
 export const fetchDataFromAPI = () => {
 	return dispatch =>
-		// dispatch(fetchData());
 		Promise.all(
 			API_LIST.map((url) =>
 				fetch(url)
@@ -41,17 +40,3 @@ export const fetchDataFromAPI = () => {
             });
         });
 };
-
-
-
-//   axios
-//         .get('https://another-user-session.herokuapp.com/members')
-//         .then(response => {
-//           // response.data is the users
-//           const users = response.data
-//           dispatch(fetchUserSuccess(users))
-//         })
-//         .catch(error => {
-//           // error.message is the error message
-//           dispatch(fetchUserFailure(error.message))
-//         })

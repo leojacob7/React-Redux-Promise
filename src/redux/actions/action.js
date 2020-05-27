@@ -8,7 +8,6 @@ export function fetchData() {
 }
 
 export function fetchDataSuccess(data) {
-    debugger;
     return {
         type: FETCH_DATA_SUCCESS,
         loading: false,
@@ -17,7 +16,6 @@ export function fetchDataSuccess(data) {
 }
 
 export function fetchDataFailure(error) {
-    debugger;
     return {
         type: FETCH_DATA_FAILURE,
         loading: false,
@@ -28,7 +26,6 @@ export function fetchDataFailure(error) {
 
 
 export const fetchDataFromAPI = () => {
-    debugger;
 	return dispatch =>
 		// dispatch(fetchData());
 		Promise.all(
@@ -39,8 +36,7 @@ export const fetchDataFromAPI = () => {
 			)
 		).then((data) => {
             data.forEach(element => {
-                debugger;
-                element.type === 'error' ? dispatch(fetchDataFailure("An error occured while loading data"))
+                element.type === 'error' ? dispatch(fetchDataFailure({ error: "An error occured while loading data"}))
                 : dispatch(fetchDataSuccess(element))
             });
         });

@@ -1,0 +1,17 @@
+.widgetContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widgetfailData {
+    width: 50%;
+    background: red;
+    color: white
+  }
+  
+  .widgetSuccessData {
+    width: 50%;
+    background: green;
+    color: white
+  }

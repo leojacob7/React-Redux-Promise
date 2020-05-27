@@ -7,17 +7,16 @@ const initialState = {
 }
 
 
-export const apiCallReducer = (state = initialState, action) => {
+export const apiCallReducer = (state = [initialState], action) => {
     switch (action.type) {
         case FETCH_DATA:
             return { ...state, loading: state.loading }
             
         case FETCH_DATA_SUCCESS:
-            debugger;
-            return { ...state, data: action.payload, loading: action.loading }
+            return state.concat({ data: action.payload, loading: action.loading })
 
         case FETCH_DATA_FAILURE:
-            return { ...state, loading: action.loading, data: action.payload, error:action.error }
+            return state.concat({ loading: action.loading, data: action.payload, error:action.error })
     
         default:
             return state;;
